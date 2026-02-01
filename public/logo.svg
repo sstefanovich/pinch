@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+  <!-- Close-up: a few salt crystals (angular, faceted) -->
+  <!-- Main crystal (center) -->
+  <path
+    d="M20 8 L26 14 L24 22 L18 24 L14 18 Z"
+    fill="#f5f3ef"
+    stroke="#c45c3e"
+    stroke-width="1"
+    stroke-linejoin="round"
+  />
+  <!-- Small crystal (top-right) -->
+  <path
+    d="M28 10 L32 14 L30 18 L26 16 Z"
+    fill="#faf8f5"
+    stroke="#c45c3e"
+    stroke-width="0.9"
+    stroke-linejoin="round"
+  />
+  <!-- Small crystal (bottom-left) -->
+  <path
+    d="M10 20 L14 24 L12 28 L8 26 Z"
+    fill="#faf8f5"
+    stroke="#c45c3e"
+    stroke-width="0.9"
+    stroke-linejoin="round"
+  />
+  <!-- Tiny crystal (edge) -->
+  <path
+    d="M22 26 L25 28 L24 31 L21 30 Z"
+    fill="#fff"
+    stroke="#a04a32"
+    stroke-width="0.8"
+    stroke-linejoin="round"
+  />
+  <!-- Facet highlight on main crystal -->
+  <path
+    d="M18 14 L22 18 L20 20 L16 16 Z"
+    fill="#fff"
+    opacity="0.6"
+  />
+</svg>

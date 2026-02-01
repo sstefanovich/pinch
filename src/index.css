@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  /* Pinch warm palette */
+  --color-pinch-cream: #faf8f5;
+  --color-pinch-warm: #e8e0d5;
+  --color-pinch-terracotta: #c45c3e;
+  --color-pinch-terracotta-dark: #a04a32;
+  --color-pinch-brown: #6b5344;
+  --color-pinch-herb: #5a6b4a;
+  --color-pinch-herb-light: #7a8b6a;
+  --color-pinch-ink: #3d3229;
+  --color-pinch-ink-light: #5c5044;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Fraunces", "Georgia", serif;
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-pinch-cream text-pinch-ink min-h-screen;
+  }
+}
