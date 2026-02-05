@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# Pinch
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**A pinch of help in the kitchen** — Quick tools for converting, scaling, timing & reference.
 
-Currently, two official plugins are available:
+A React web app that provides handy kitchen utilities: unit conversion, recipe scaling, kitchen timers, measurement reference, and ingredient substitutions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+| Tool | Description |
+|------|-------------|
+| **Unit Converter** | Convert cups, tablespoons, teaspoons, ml, fl oz, grams, ounces & temperatures (°F/°C) |
+| **Recipe Scaler** | Scale recipes up or down by changing the number of servings. Paste ingredients (one per line); lines like `2 cups flour` are auto-scaled |
+| **Kitchen Timer** | Run one or more timers with optional labels. Pause, resume, remove. Active timers appear on the home page |
+| **Measurement Reference** | Pinch, dash, smidgen, and other cooking measures with equivalents |
+| **Common Substitutions** | Searchable swaps for buttermilk, eggs, butter, cream, flour, and more |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **React 19** + TypeScript
+- **Vite** for dev/build
+- **React Router** for navigation
+- **Tailwind CSS** for styling
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Then open [http://localhost:5173](http://localhost:5173).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Type-check and build for production |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint |
+
+## Deployment (Azure Static Web Apps)
+
+The app is configured for Vite, which outputs to `dist`. The workflow at `.github/workflows/azure-static-web-apps.yml` uses `output_location: "dist"` accordingly.
+
+If you connected Azure before adding this workflow, you may have an auto-generated workflow (e.g. `azure-static-web-apps-<name>.yml`) that still expects `build`. Either:
+
+- **Replace it** with the workflow in this repo, or  
+- **Edit** the existing workflow and change `output_location` from `"build"` to `"dist"`.
+
+Ensure the `AZURE_STATIC_WEB_APPS_API_TOKEN` secret (or your app-specific token) is set in GitHub repo secrets.
+
+## Project Structure
+
+```
+src/
+├── App.tsx           # Routes & TimerProvider
+├── Layout.tsx        # Header, nav, footer
+├── context/
+│   └── TimerContext.tsx
+└── pages/
+    ├── Home.tsx
+    ├── Converter.tsx
+    ├── Scaler.tsx
+    ├── Timer.tsx
+    ├── Reference.tsx
+    └── Substitutions.tsx
 ```
