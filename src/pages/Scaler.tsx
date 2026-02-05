@@ -8,8 +8,8 @@ interface Line {
   rest?: string
 }
 
-// Match "number + unit" at start: 1 cup, 2 tbsp, 1/2 tsp, 250 g, etc.
-const AMOUNT_REGEX = /^(\d+\/\d+|\d+\.?\d*)\s*(\w+)\s+(.*)$/
+// Match "number + unit" at start: 1 cup, 2 tbsp, 1/2 tsp, 250 g, 2 eggs, etc.
+const AMOUNT_REGEX = /^(\d+\/\d+|\d+\.?\d*)\s*(\w+)\s*(.*)$/
 
 function parseLine(line: string): { amount: number; unit: string; rest: string } | null {
   const trimmed = line.trim()
